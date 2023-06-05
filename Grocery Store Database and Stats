@@ -1,0 +1,34 @@
+--Create a grocery store database
+
+CREATE TABLE store_items (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, aisle INTEGER);
+
+INSERT INTO store_items VALUES (1, "t-shirts", 10.99, 6, 1);
+INSERT INTO store_items VALUES (2, "pants", 15.99, 32, 2);
+INSERT INTO store_items VALUES (3, "skirts", 11.99, 9, 3);
+INSERT INTO store_items VALUES (4, "shoes", 13.99, 26, 4);
+INSERT INTO store_items VALUES (5, "socks", 25.99, 26, 5);
+INSERT INTO store_items VALUES (6, "belts", 2.99, 33, 6);
+INSERT INTO store_items VALUES (7, "jackets", 1.99, 8, 7);
+INSERT INTO store_items VALUES (8, "underwear", 22.99, 26, 8);
+INSERT INTO store_items VALUES (9, "headbands", 5.99, 15, 9);
+INSERT INTO store_items VALUES (10, "bracelets", 15.99, 8, 10);
+INSERT INTO store_items VALUES (11, "watches", 6.99, 25, 11);
+INSERT INTO store_items VALUES (12, "camisoles", 8.99, 14, 12);
+INSERT INTO store_items VALUES (13, "blouses", 12.99, 12, 13);
+INSERT INTO store_items VALUES (14, "tank tops", 13.99, 11, 14);
+INSERT INTO store_items VALUES (15, "necklaces", 16.99, 54, 15);
+
+--display the total amount of items in inventory
+SELECT SUM(quantity) 
+FROM store_items;
+
+--display the database ordered by price
+SELECT * 
+FROM store_items 
+ORDER BY price;
+
+--- what aisles have store items with more than 10 items in stock?
+SELECT aisle, item, quantity, price 
+FROM store_items 
+WHERE quantity > 10
+ORDER BY aisle;
